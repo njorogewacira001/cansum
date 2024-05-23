@@ -1,11 +1,11 @@
-const canSum = (targetSum, numbers, memo = {}) => {
+const howsum = (targetSum, numbers, memo = {}) => {
     if (targetSum in memo) return memo[targetSum];
     if (targetSum === 0) return true;
     if (targetSum < 0) return false;
 
     for (let num of numbers) {
         const remainder = targetSum - num;
-        if (canSum(remainder, numbers, memo) === true) {
+        if (howsum(remainder, numbers, memo) === true) {
             memo[targetSum] = true;
             return true;
         }
@@ -16,8 +16,8 @@ const canSum = (targetSum, numbers, memo = {}) => {
 };
 
 
-console.log(canSum(7, [2, 3]));        
-console.log(canSum(7, [5, 3, 4, 7]));  
-console.log(canSum(7, [2, 4]));
-console.log(canSum(8, [2, 3, 5]));     
-console.log(canSum(300, [7, 14]));     
+console.log(howsum(7, [2, 3]));        
+console.log(howsum(7, [5, 3, 4, 7]));  
+console.log(howsum(7, [2, 4]));
+console.log(howsum(8, [2, 3, 5]));     
+console.log(howsum(300, [7, 14]));     
